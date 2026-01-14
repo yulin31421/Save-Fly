@@ -31,6 +31,7 @@ import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { CalendarIcon, Loader2, Search } from 'lucide-react';
 import { Switch } from './ui/switch';
+import { airports } from '@/lib/airports';
 
 interface SearchFormProps {
   onSearch: (data: SearchFormValues) => void;
@@ -79,9 +80,18 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Departure</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g., TPE" {...field} />
-                    </FormControl>
+                     <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a departure airport" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {airports.map((airport) => (
+                          <SelectItem key={airport.value} value={airport.value}>{airport.label}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
