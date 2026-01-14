@@ -69,7 +69,7 @@ export async function FlightCard({ flight, index }: FlightCardProps) {
         </div>
         <div className="flex-grow" />
       </CardContent>
-      <CardFooter className="p-4 pt-0 bg-slate-50 dark:bg-slate-900/50">
+      <CardFooter className="p-4 pt-0 bg-card/80">
         <div className="flex items-end justify-between w-full">
             <div>
                 <p className="text-sm text-muted-foreground">Price from</p>
