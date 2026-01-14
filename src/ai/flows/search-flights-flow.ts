@@ -21,13 +21,12 @@ const FlightSchema: z.ZodType<Flight> = z.object({
     city: z.string().describe('The city of departure.'),
     time: z
       .string()
-      .datetime()
-      .describe('The departure time in ISO 8601 format.'),
+      .describe('The departure time in a valid ISO 8601 format (e.g., "2024-09-10T08:30:00.000Z").'),
   }),
   arrival: z.object({
     airport: z.string().describe('The IATA code of the arrival airport.'),
     city: z.string().describe('The city of arrival.'),
-    time: z.string().datetime().describe('The arrival time in ISO 8601 format.'),
+    time: z.string().describe('The arrival time in a valid ISO 8601 format (e.g., "2024-09-10T12:45:00.000Z").'),
   }),
   duration: z.string().describe('The total duration of the flight (e.g., "3h 15m").'),
   price: z.number().describe('The price of the flight in USD.'),
@@ -88,13 +87,14 @@ export async function searchFlightsFlow(
     Important Instructions:
     1. If 'Flexible Dates' is true OR if Start/End dates are not specified, generate flights for various dates within the next 30-60 days.
     2. If specific dates are provided, generate flights within that date range.
-    3. The flight times (departure and arrival) should be logical for the given route.
-    4. The prices should be realistic for the route and budget preference. 'budget' is cheapest, 'mid' is moderate, 'comfort' is expensive.
-    5. Use a variety of airlines from the provided list.
-    6. The 'destinationCountry' must be correctly identified based on the destination airport.
-    7. ALWAYS set the bookingUrl to 'https://www.google.com/flights'.
-    8. Generate between 1 and 9 flights.
-    9. Ensure the ID for each flight is a unique string.
+    3. The flight times (departure and arrival) must be logical for the given route.
+    4. CRITICAL: The 'time' fields for departure and arrival MUST be a valid ISO 8601 UTC string (e.g., "2024-09-10T08:30:00.000Z"). Do not use local time formats.
+    5. The prices should be realistic for the route and budget preference. 'budget' is cheapest, 'mid' is moderate, 'comfort' is expensive.
+    6. Use a variety of airlines from the provided list.
+    7. The 'destinationCountry' must be correctly identified based on the destination airport.
+    8. ALWAYS set the bookingUrl to 'https://www.google.com/flights'.
+    9. Generate between 1 and 9 flights.
+    10. Ensure the ID for each flight is a unique string.
 
     Available Airlines: ${airlines.join(', ')}
     `,
