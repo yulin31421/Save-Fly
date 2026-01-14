@@ -24,7 +24,7 @@ export async function searchFlights(
     const toMatchDestination = destination ? flight.arrival.airport === destination : true;
 
     const toMatchDate = !flexibleDates && startDate && endDate
-      ? new Date(flight.departure.time) >= startDate && new Date(flight.departure.time) <= endDate
+      ? new Date(flight.departure.time) >= startDate && new Date(flight.arrival.time) <= endDate
       : true;
 
     return toMatchDeparture && toMatchDestination && toMatchDate;
