@@ -23,9 +23,21 @@ export async function searchFlights(
     const toMatchDeparture = departure ? flight.departure.airport === departure : true;
     const toMatchDestination = destination ? flight.arrival.airport === destination : true;
 
-    const toMatchDate = !flexibleDates && startDate && endDate
-      ? new Date(flight.departure.time) >= startDate && new Date(flight.arrival.time) <= endDate
-      : true;
+    let toMatchDate = true;
+    if (!flexibleDates && startDate && endDate) {
+      const departureTime = new Date(flight.departure.time);
+      const arrivalTime = new Date(flight.arrival.time);
+      // We only care about the date part
+      departureTime.setHours(0, 0, 0, 0);
+      arrivalTime.setHours(0, 0, 0, 0);
+      const sDate = new Date(startDate);
+      sDate.setHours(0, 0, 0, 0);
+      const eDate = new Date(endDate);
+      eDate.setHours(0, 0, 0, 0);
+      
+      toMatchDate = departureTime >= sDate && arrivalTime <= eDate;
+    }
+
 
     return toMatchDeparture && toMatchDestination && toMatchDate;
   });
