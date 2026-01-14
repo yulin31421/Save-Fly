@@ -17,27 +17,39 @@ export async function searchFlights(
     throw new Error('Invalid search criteria.');
   }
 
-  const { departure, destination, startDate, endDate, flexibleDates } = validatedFields.data;
+  const { departure, destination, startDate, endDate } = validatedFields.data;
 
   const filteredFlights = mockFlights.filter(flight => {
     const toMatchDeparture = departure ? flight.departure.airport === departure : true;
     const toMatchDestination = destination ? flight.arrival.airport === destination : true;
 
     let toMatchDate = true;
-    if (!flexibleDates && startDate && endDate) {
+    
+    // If specific dates are provided, filter by them
+    if (startDate && endDate) {
       const departureTime = new Date(flight.departure.time);
-      const arrivalTime = new Date(flight.arrival.time);
       // We only care about the date part
       departureTime.setHours(0, 0, 0, 0);
-      arrivalTime.setHours(0, 0, 0, 0);
+      
       const sDate = new Date(startDate);
       sDate.setHours(0, 0, 0, 0);
       const eDate = new Date(endDate);
       eDate.setHours(0, 0, 0, 0);
       
-      toMatchDate = departureTime >= sDate && arrivalTime <= eDate;
-    }
+      toMatchDate = departureTime >= sDate && departureTime <= eDate;
+    } else {
+      // If no dates are provided, filter for flights in the next 30 days
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      const thirtyDaysFromNow = new Date(today);
+      thirtyDaysFromNow.setDate(today.getDate() + 30);
 
+      const departureTime = new Date(flight.departure.time);
+      departureTime.setHours(0, 0, 0, 0);
+
+      toMatchDate = departureTime >= today && departureTime <= thirtyDaysFromNow;
+    }
 
     return toMatchDeparture && toMatchDestination && toMatchDate;
   });
