@@ -22,7 +22,7 @@ export interface Flight {
 
 export const searchSchema = z.object({
   departure: z.string().min(1, 'Departure is required').default('TPE'),
-  destinationCountry: z.string().default('any'),
+  destination: z.string().min(1, 'Destination is required').default('NRT'),
   startDate: z.date().optional(),
   endDate: z.date().optional(),
   flexibleDates: z.boolean().default(false),

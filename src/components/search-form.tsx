@@ -51,7 +51,7 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
     resolver: zodResolver(searchSchema),
     defaultValues: {
       departure: 'TPE',
-      destinationCountry: 'any',
+      destination: 'NRT',
       flexibleDates: false,
       travelers: 1,
       travelStyle: [],
@@ -98,23 +98,20 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
               />
               <FormField
                 control={form.control}
-                name="destinationCountry"
+                name="destination"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Destination</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a country" />
+                          <SelectValue placeholder="Select a destination airport" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="any">Any Destination</SelectItem>
-                        <SelectItem value="Japan">Japan</SelectItem>
-                        <SelectItem value="South Korea">South Korea</SelectItem>
-                        <SelectItem value="Thailand">Thailand</SelectItem>
-                        <SelectItem value="Vietnam">Vietnam</SelectItem>
-                        <SelectItem value="Singapore">Singapore</SelectItem>
+                        {airports.map((airport) => (
+                          <SelectItem key={airport.value} value={airport.value}>{airport.label}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                     <FormMessage />

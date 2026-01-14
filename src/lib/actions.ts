@@ -17,18 +17,17 @@ export async function searchFlights(
     throw new Error('Invalid search criteria.');
   }
 
-  const { destinationCountry, startDate, endDate, flexibleDates } = validatedFields.data;
+  const { departure, destination, startDate, endDate, flexibleDates } = validatedFields.data;
 
   const filteredFlights = mockFlights.filter(flight => {
-    const toMatchCountry = destinationCountry && destinationCountry !== 'any' 
-      ? flight.destinationCountry === destinationCountry 
-      : true;
+    const toMatchDeparture = departure ? flight.departure.airport === departure : true;
+    const toMatchDestination = destination ? flight.arrival.airport === destination : true;
 
     const toMatchDate = !flexibleDates && startDate && endDate
       ? new Date(flight.departure.time) >= startDate && new Date(flight.departure.time) <= endDate
       : true;
 
-    return toMatchCountry && toMatchDate;
+    return toMatchDeparture && toMatchDestination && toMatchDate;
   });
 
   return filteredFlights.sort((a, b) => a.price - b.price).slice(0, 20);
