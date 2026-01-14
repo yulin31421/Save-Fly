@@ -72,7 +72,7 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSearch)} className="space-y-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
               <FormField
                 control={form.control}
                 name="departure"
@@ -111,72 +111,84 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
                   </FormItem>
                 )}
               />
-              <div className="flex flex-col gap-2">
-                <FormField
-                  control={form.control}
-                  name="dateRange"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel className={cn(isFlexible && "text-muted-foreground/50")}>Travel Dates</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={'outline'}
-                              disabled={isFlexible}
-                              className={cn(
-                                'w-full pl-3 text-left font-normal',
-                                !field.value?.from && 'text-muted-foreground'
-                              )}
-                            >
-                              {field.value?.from ? (
-                                field.value.to ? (
-                                  <>
-                                    {format(field.value.from, 'LLL dd, y')} -{' '}
-                                    {format(field.value.to, 'LLL dd, y')}
-                                  </>
-                                ) : (
-                                  format(field.value.from, 'LLL dd, y')
-                                )
-                              ) : (
-                                <span>Pick a date range</span>
-                              )}
-                              <CalendarIcon className="w-4 h-4 ml-auto opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <Calendar
-                            mode="range"
-                            selected={{ from: field.value?.from, to: field.value?.to }}
-                            onSelect={field.onChange}
-                            numberOfMonths={2}
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                 <FormField
-                  control={form.control}
-                  name="flexibleDates"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-end gap-2 space-y-0">
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
+              <FormField
+                control={form.control}
+                name="startDate"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel className={cn(isFlexible && "text-muted-foreground/50")}>Start Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={'outline'}
+                            disabled={isFlexible}
+                            className={cn(
+                              'w-full pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, 'LLL dd, y')
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className="w-4 h-4 ml-auto opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          initialFocus
                         />
-                      </FormControl>
-                      <FormLabel className="text-sm font-normal">
-                        Flexible dates
-                      </FormLabel>
-                    </FormItem>
-                  )}
-                />
-              </div>
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="endDate"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel className={cn(isFlexible && "text-muted-foreground/50")}>End Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={'outline'}
+                            disabled={isFlexible}
+                            className={cn(
+                              'w-full pl-3 text-left font-normal',
+                              !field.value && 'text-muted-foreground'
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, 'LLL dd, y')
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className="w-4 h-4 ml-auto opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="travelers"
@@ -192,6 +204,26 @@ export function SearchForm({ onSearch, isSearching }: SearchFormProps) {
               />
             </div>
             
+             <div className="flex flex-row items-center justify-end gap-2 pt-4 border-t">
+                <FormField
+                  control={form.control}
+                  name="flexibleDates"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-center justify-end gap-2 space-y-0">
+                      <FormControl>
+                        <Switch
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                      <FormLabel className="text-sm font-normal">
+                        I'm flexible
+                      </FormLabel>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
             <div className="space-y-4">
               <h3 className="text-lg font-medium font-headline">Personalized Preferences</h3>
               <div className="p-4 border rounded-lg bg-background/50">

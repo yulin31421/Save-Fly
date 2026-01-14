@@ -17,15 +17,15 @@ export async function searchFlights(
     throw new Error('Invalid search criteria.');
   }
 
-  const { destinationCountry, dateRange, flexibleDates } = validatedFields.data;
+  const { destinationCountry, startDate, endDate, flexibleDates } = validatedFields.data;
 
   const filteredFlights = mockFlights.filter(flight => {
     const toMatchCountry = destinationCountry && destinationCountry !== 'any' 
       ? flight.destinationCountry === destinationCountry 
       : true;
 
-    const toMatchDate = !flexibleDates && dateRange && dateRange.from && dateRange.to
-      ? new Date(flight.departure.time) >= dateRange.from && new Date(flight.departure.time) <= dateRange.to
+    const toMatchDate = !flexibleDates && startDate && endDate
+      ? new Date(flight.departure.time) >= startDate && new Date(flight.departure.time) <= endDate
       : true;
 
     return toMatchCountry && toMatchDate;
