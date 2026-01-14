@@ -17,7 +17,7 @@ export async function searchFlights(
     throw new Error('Invalid search criteria.');
   }
 
-  const { departure, destination, startDate, endDate } = validatedFields.data;
+  const { departure, destination, startDate, endDate, flexibleDates } = validatedFields.data;
 
   const filteredFlights = mockFlights.filter(flight => {
     const toMatchDeparture = departure ? flight.departure.airport === departure : true;
@@ -25,10 +25,9 @@ export async function searchFlights(
 
     let toMatchDate = true;
     
-    // If specific dates are provided, filter by them
-    if (startDate && endDate) {
+    // If specific dates are provided and flexibleDates is false, filter by them
+    if (startDate && endDate && !flexibleDates) {
       const departureTime = new Date(flight.departure.time);
-      // We only care about the date part
       departureTime.setHours(0, 0, 0, 0);
       
       const sDate = new Date(startDate);
@@ -38,7 +37,7 @@ export async function searchFlights(
       
       toMatchDate = departureTime >= sDate && departureTime <= eDate;
     } else {
-      // If no dates are provided, filter for flights in the next 30 days
+      // If no dates are provided, or if flexible is checked, filter for flights in the next 30 days
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       
