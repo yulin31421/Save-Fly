@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "tokyo_placeholder",
+      "description": "A placeholder image for Tokyo.",
+      "imageUrl": "https://images.unsplash.com/photo-1531219435494-8e90d22adc1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxUb2t5byUyMHNreWxpbmV8ZW58MHx8fHwxNzY4MzcyNTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Tokyo skyline"
+    },
+    {
+      "id": "osaka_placeholder",
+      "description": "A placeholder image for Osaka.",
+      "imageUrl": "https://images.unsplash.com/photo-1626275515418-ae406fa3da38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxPc2FrYSUyMGNhc3RsZXxlbnwwfHx8fDE3NjgzNzI1OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Osaka castle"
+    },
+    {
+      "id": "fukuoka_placeholder",
+      "description": "A placeholder image for Fukuoka.",
+      "imageUrl": "https://images.unsplash.com/photo-1609747095217-9a6e06e7fafc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxGdWt1b2thJTIwY2l0eXxlbnwwfHx8fDE3NjgzNzI1OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Fukuoka city"
+    },
+    {
+      "id": "seoul_placeholder",
+      "description": "A placeholder image for Seoul.",
+      "imageUrl": "https://images.unsplash.com/photo-1693928105512-10516b969717?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxTZW91bCUyMHBhbGFjZXxlbnwwfHx8fDE3NjgzNzI1OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Seoul palace"
+    },
+    {
+      "id": "busan_placeholder",
+      "description": "A placeholder image for Busan.",
+      "imageUrl": "https://images.unsplash.com/photo-1679054142611-5f0580dab94f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxCdXNhbiUyMGJlYWNofGVufDB8fHx8MTc2ODM3MjU5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Busan beach"
+    },
+    {
+      "id": "bangkok_placeholder",
+      "description": "A placeholder image for Bangkok.",
+      "imageUrl": "https://images.unsplash.com/photo-1731168168094-3361c6e2ee90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxCYW5na29rJTIwdGVtcGxlfGVufDB8fHx8MTc2ODM3MjU5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Bangkok temple"
+    },
+    {
+      "id": "chiang mai_placeholder",
+      "description": "A placeholder image for Chiang Mai.",
+      "imageUrl": "https://images.unsplash.com/photo-1750433932526-326eec597c70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxDaGlhbmclMjBNYWklMjBlbGVwaGFudHN8ZW58MHx8fHwxNzY4MzcyNTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Chiang Mai elephants"
+    },
+    {
+      "id": "hanoi_placeholder",
+      "description": "A placeholder image for Hanoi.",
+      "imageUrl": "https://images.unsplash.com/photo-1647147275290-825d656bf195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxIYW5vaSUyMHN0cmVldHxlbnwwfHx8fDE3NjgzNzI1OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Hanoi street"
+    },
+    {
+      "id": "ho chi minh city_placeholder",
+      "description": "A placeholder image for Ho Chi Minh City.",
+      "imageUrl": "https://images.unsplash.com/photo-1647608728903-6402f0dd3b57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxTYWlnb24lMjBjaXR5fGVufDB8fHx8MTc2ODM3MjU5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Saigon city"
+    },
+    {
+      "id": "da nang_placeholder",
+      "description": "A placeholder image for Da Nang.",
+      "imageUrl": "https://images.unsplash.com/photo-1696215104268-7263f3afa2d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxEYSUyME5hbmclMjBicmlkZ2V8ZW58MHx8fHwxNzY4MzcyNTkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Da Nang bridge"
+    },
+    {
+      "id": "singapore_placeholder",
+      "description": "A placeholder image for Singapore.",
+      "imageUrl": "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxTaW5nYXBvcmUlMjBjaXR5fGVufDB8fHx8MTc2ODM3MjU5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Singapore city"
+    }
+  ]
 }
