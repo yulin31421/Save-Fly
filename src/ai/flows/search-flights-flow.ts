@@ -7,7 +7,7 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { z } from 'zod';
 import type { Flight, SearchFormValues } from '@/lib/types';
 import { searchSchema } from '@/lib/types';
 import { airports } from '@/lib/airports';
@@ -71,7 +71,7 @@ export async function searchFlightsFlow(
 
   const { output } = await ai.generate({
     model: 'googleai/gemini-1.5-flash',
-    prompt: `You are a flight search engine. Generate a list of 1 to 9 realistic-looking, but fake, flights based on the following criteria.
+    prompt: `You are a flight search engine. Generate a list of 1 to 9 realistic flights based on the following criteria.
     
     Search Criteria:
     - Departure Airport: ${input.departure} (${departureCity})
