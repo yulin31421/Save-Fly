@@ -11,7 +11,7 @@ export const mockFlights: Flight[] = [
     duration: '3h 15m',
     price: 350,
     destinationCountry: 'Japan',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '2',
@@ -22,7 +22,7 @@ export const mockFlights: Flight[] = [
     duration: '3h 15m',
     price: 380,
     destinationCountry: 'Japan',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '3',
@@ -33,7 +33,7 @@ export const mockFlights: Flight[] = [
     duration: '3h 15m',
     price: 365,
     destinationCountry: 'Japan',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '4',
@@ -44,7 +44,7 @@ export const mockFlights: Flight[] = [
     duration: '2h 30m',
     price: 280,
     destinationCountry: 'Japan',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   // South Korea
   {
@@ -56,7 +56,7 @@ export const mockFlights: Flight[] = [
     duration: '2h 35m',
     price: 320,
     destinationCountry: 'South Korea',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '6',
@@ -67,7 +67,7 @@ export const mockFlights: Flight[] = [
     duration: '2h 35m',
     price: 310,
     destinationCountry: 'South Korea',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '7',
@@ -78,7 +78,7 @@ export const mockFlights: Flight[] = [
     duration: '2h 35m',
     price: 250,
     destinationCountry: 'South Korea',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
    // Thailand
   {
@@ -90,7 +90,7 @@ export const mockFlights: Flight[] = [
     duration: '4h 0m',
     price: 290,
     destinationCountry: 'Thailand',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '9',
@@ -101,7 +101,7 @@ export const mockFlights: Flight[] = [
     duration: '4h 0m',
     price: 315,
     destinationCountry: 'Thailand',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '10',
@@ -112,7 +112,7 @@ export const mockFlights: Flight[] = [
     duration: '4h 0m',
     price: 220,
     destinationCountry: 'Thailand',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   // Vietnam
   {
@@ -124,7 +124,7 @@ export const mockFlights: Flight[] = [
     duration: '3h 10m',
     price: 260,
     destinationCountry: 'Vietnam',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '12',
@@ -135,7 +135,7 @@ export const mockFlights: Flight[] = [
     duration: '3h 30m',
     price: 210,
     destinationCountry: 'Vietnam',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   // Singapore
   {
@@ -147,7 +147,7 @@ export const mockFlights: Flight[] = [
     duration: '4h 45m',
     price: 400,
     destinationCountry: 'Singapore',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   {
     id: '14',
@@ -158,7 +158,7 @@ export const mockFlights: Flight[] = [
     duration: '4h 45m',
     price: 240,
     destinationCountry: 'Singapore',
-    bookingUrl: 'https://www.skyscanner.com',
+    bookingUrl: 'https://www.google.com/flights',
   },
   // Add 15 more to reach ~30
   ...Array.from({ length: 16 }, (_, i) => {
@@ -185,7 +185,7 @@ export const mockFlights: Flight[] = [
       duration: `${3 + i%2}h 30m`,
       price: 200 + i * 10 + Math.floor(Math.random() * 50),
       destinationCountry: country,
-      bookingUrl: 'https://www.skyscanner.com',
+      bookingUrl: 'https://www.google.com/flights',
     };
   }),
 ];
